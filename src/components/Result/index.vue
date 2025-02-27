@@ -44,7 +44,7 @@ const dynamicComponent = computed(() => {
 });
 </script>
 <style lang="scss" scoped>
-@import '@/style/theme';
+@use '@/style/theme';
 
 .result {
 

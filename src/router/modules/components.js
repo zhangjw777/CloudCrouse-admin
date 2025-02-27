@@ -16,7 +16,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "curriculum",
+        name: "curriculum-index",
         component: () => import("@/pages/curriculum/course/index.vue"),
         meta: { title: "课程管理" },
       },
@@ -55,7 +55,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "title",
+        name: "title-index",
         component: () => import("@/pages/title/index.vue"),
         meta: { title: "题目管理" },
       },
@@ -88,7 +88,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "marketing",
+        name: "marketing-index",
         component: () => import("@/pages/marketing/index.vue"),
         meta: { title: "优惠券管理" },
       },
@@ -115,7 +115,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "interactive",
+        name: "interactive-index",
         component: () => import("@/pages/interactive/index.vue"),
         meta: { title: "问答管理" },
       },
@@ -154,7 +154,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "student",
+        name: "student-index",
         component: () => import("@/pages/userlist/student/index.vue"),
         meta: { title: "学员管理" },
       },
@@ -181,7 +181,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "order",
+        name: "order-index",
         component: () => import("@/pages/order/index.vue"),
         meta: { title: "订单管理" },
       },
@@ -214,7 +214,7 @@ export default [
     children: [
       {
         path: "index",
-        name: "my",
+        name: "my-index",
         component: () => import("@/pages/my/index.vue"),
         meta: { title: "个人中心", hidden: true  },
       }
