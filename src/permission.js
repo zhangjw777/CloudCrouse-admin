@@ -14,55 +14,30 @@ NProgress.configure({ showSpinner: false });
 
 const { whiteListRouters } = permissionStore;
 // 登录状态效验
-router.beforeEach(async (to, from, next) => {
-  NProgress.start();
-  const { token } = userStore;
-  
-  if (token) {
-    if (to.path === '/login') {
-      userStore.logout();
-      localStorage.removeItem('openeds')
-      localStorage.removeItem('defaultIndex')
-      permissionStore.restore();
-      next();
-      return;
+/* router.beforeEach(async (to, from, next) => { // to代表用户去的页面的路由信息 form是用户当前页面的理由信息 next为路由跳转的控制函数
+    NProgress.start(); // 开始加载进度条
+    const { token } = userStore; // 获取用户token
+    
+    if (token) { // 已登录状态
+      if (to.path === '/login') { // 如果要去登录页
+        userStore.logout(); // 执行登出操作
+        localStorage.removeItem('openeds') // 清理本地存储
+        localStorage.removeItem('defaultIndex')
+        permissionStore.restore(); // 重置权限状态
+        next(); // 放行到登录页,此时to = /login
+        return;
+      }
+      next(); // 直接放行到目标页 因为此时已经登录
+    } else { // 未登录状态
+      if (whiteListRouters.indexOf(to.path) !== -1) { // 检查是否在白名单
+        next(); // 放行白名单路由
+      } else {
+        next(`/login?redirect=${to.path}`); // 重定向到登录页并携带原路径
+      }
+      NProgress.done(); // 立即结束进度条
     }
-    // token 存在 进入下一页
-    next();
-    // const { roles } = userStore;
-
-    // if (roles && roles.length > 0) {
-    //   next();
-    // } else {
-    //   try {
-    //     await userStore.getUserInfo();
-
-    //     const { roles } = userStore;
-
-    //     await permissionStore.initRoutes(roles);
-
-    //     if (router.hasRoute(to.name)) {
-    //       next();
-    //     } else {
-    //       next(`/`);
-    //     }
-    //   } catch (error) {
-    //     // MessagePlugin.error(error);
-    //     next(`/login?redirect=${to.path}`);
-    //     NProgress.done();
-    //   }
-    // }
-  } else {
-    // '无登录信息，跳转到登录页面'
-    if (whiteListRouters.indexOf(to.path) !== -1) {
-      next();
-    } else {
-      next(`/login?redirect=${to.path}`);
-    }
-    NProgress.done();
-  }
-});
+  }); */
 
 router.afterEach(() => {
-  NProgress.done();
+  NProgress.done();// 每次路由跳转完成后关闭进度条
 });

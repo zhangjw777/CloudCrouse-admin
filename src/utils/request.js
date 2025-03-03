@@ -19,6 +19,14 @@ let isLogin = true
 // 刷新标记
 // let refreshing = ref(false)
 
+/**
+ * Axios实例配置
+ * @type {import('axios').AxiosInstance}
+ * @description 创建一个自定义配置的Axios实例
+ * @property {string} baseURL - API的基础URL，设置为host变量的值
+ * @property {number} timeout - 请求超时时间，设置为1000毫秒
+ * @property {boolean} withCredentials - 是否携带跨域请求的凭证，设置为false
+ */
 const instance = axios.create({
   baseURL:  host, // 'http://172.17.2.134/api-test',
   timeout: 1000,
@@ -26,7 +34,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-  const TOKEN = sessionStorage.getItem(TOKEN_NAME);
+  const TOKEN = sessionStorage.getItem(TOKEN_NAME); //获取浏览器中存储的token
   config.headers = {
     "Content-Type": "application/json",
     "authorization": TOKEN
