@@ -1,6 +1,6 @@
 <!-- 主页面 -->
 <template>
-  <el-config-provider :locale="locale">
+  <el-config-provider :locale="locale" >
     <router-view></router-view>
   </el-config-provider>
 </template>

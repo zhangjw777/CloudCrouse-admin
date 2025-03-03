@@ -5,7 +5,7 @@
       ref="formRef"
       :model="fromData"
       :rules="rules"
-      rules
+      
       label-width="0px"
       class="demo-dynamic"
     >
